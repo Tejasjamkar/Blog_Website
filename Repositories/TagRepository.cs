@@ -2,7 +2,6 @@
 using Bloggie.Models.Domain;
 using Bloggie.Models.ViewModels;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace Bloggie.Repositories
 {
@@ -29,7 +28,6 @@ namespace Bloggie.Repositories
             {
                 _bloggiedbcontext.Tags.Remove(existingTag);
                 await _bloggiedbcontext.SaveChangesAsync();
-                //showing successfully deleted and redirect to list of tags
                 return existingTag;
             }
             return null;
@@ -42,7 +40,7 @@ namespace Bloggie.Repositories
 
         public async Task<Tag?> GetAsync(Guid id)
         {
-            var tags = await _bloggiedbcontext.Tags.FirstOrDefaultAsync(x => x.Id == id);
+            var tags = await _bloggiedbcontext.Tags.FirstOrDefaultAsync(x =>x.Id == id);
             return tags;
         }
 
@@ -59,7 +57,7 @@ namespace Bloggie.Repositories
                 return existingTag;
             }
 
-            return null; // or throw new KeyNotFoundException("Tag not found.");
+            return null; 
         }
 
     }

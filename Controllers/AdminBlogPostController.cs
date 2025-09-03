@@ -58,7 +58,7 @@ namespace Bloggie.Controllers
             //Mapping tags back to domain model
             blogPost.Tags = selectedTags;
           await  blogPostRepository.AddAsync(blogPost);
-            return RedirectToAction("Add");
+            return RedirectToAction("List");
         }
         //[HttpPost]
         //[ActionName("Addlist")]
